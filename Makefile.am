@@ -76,11 +76,11 @@ shairport_sync_SOURCES += mdns_dns_sd.c
 endif
 
 if USE_METADATA_HUB
-shairport_sync_SOURCES += metadata_hub.c 
+shairport_sync_SOURCES += metadata_hub.c
 endif
 
 if USE_DACP_CLIENT
-shairport_sync_SOURCES += dacp.c tinyhttp/chunk.c tinyhttp/header.c tinyhttp/http.c 
+shairport_sync_SOURCES += dacp.c tinyhttp/chunk.c tinyhttp/header.c tinyhttp/http.c
 endif
 
 BUILT_SOURCES =
@@ -89,7 +89,7 @@ CLEANFILES =
 
 if USE_DBUS
 shairport_sync_SOURCES += dbus-service.c dbus-interface.c
-BUILT_SOURCES += dbus-interface.h dbus-interface.c 
+BUILT_SOURCES += dbus-interface.h dbus-interface.c
 # We don't want to install this header
 noinst_HEADERS += $(BUILT_SOURCES)
 # Correctly clean the generated headers, but keep the xml description
@@ -131,6 +131,7 @@ if INSTALL_CONFIG_FILES
 	cp scripts/shairport-sync.conf $(DESTDIR)$(sysconfdir)/shairport-sync.conf.sample
 	[ -f $(DESTDIR)$(sysconfdir)/shairport-sync.conf ] || cp scripts/shairport-sync.conf $(DESTDIR)$(sysconfdir)/shairport-sync.conf
 if USE_DBUS
+	[ -e $(DESTDIR)$(sysconfdir)/dbus-1/system.d/ ] || mkdir -p $(DESTDIR)$(sysconfdir)/dbus-1/system.d/
 	cp scripts/shairport-sync-dbus-policy.conf $(DESTDIR)$(sysconfdir)/dbus-1/system.d/shairport-sync-dbus.conf
 endif
 if USE_MPRIS
@@ -157,5 +158,5 @@ if INSTALL_FREEBSD_SERVICE
 	[ -e /var/run/shairport-sync ] || mkdir -p /var/run/shairport-sync
 	chown shairport-sync:shairport-sync /var/run/shairport-sync
 	[ -f /usr/local/etc/rc.d/shairport_sync ] || cp scripts/shairport-sync.freebsd /usr/local/etc/rc.d/shairport_sync
-	chmod 555 /usr/local/etc/rc.d/shairport_sync 
+	chmod 555 /usr/local/etc/rc.d/shairport_sync
 endif
