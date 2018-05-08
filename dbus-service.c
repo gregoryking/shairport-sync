@@ -732,7 +732,7 @@ static void on_dbus_name_lost(__attribute__((unused)) GDBusConnection *connectio
   //      name, (config.dbus_service_bus_type == DBT_session) ? "session" : "system");
   pid_t pid = getpid();
   char interface_name[256] = "";
-  snprintf(interface_name, sizeof(interface_name), "org.gnome.ShairportSync.i%d", pid);
+  snprintf(interface_name, sizeof(interface_name), "org.freedesktop.ShairportSync.i%d", pid);
   GBusType dbus_bus_type = G_BUS_TYPE_SYSTEM;
   if (config.dbus_service_bus_type == DBT_session)
     dbus_bus_type = G_BUS_TYPE_SESSION;
@@ -747,9 +747,9 @@ int start_dbus_service() {
   GBusType dbus_bus_type = G_BUS_TYPE_SYSTEM;
   if (config.dbus_service_bus_type == DBT_session)
     dbus_bus_type = G_BUS_TYPE_SESSION;
-  // debug(1, "Looking for a Shairport Sync native D-Bus interface \"org.gnome.ShairportSync\" on
+  // debug(1, "Looking for a Shairport Sync native D-Bus interface \"org.freedesktop.ShairportSync\" on
   // the %s bus.",(config.dbus_service_bus_type == DBT_session) ? "session" : "system");
-  g_bus_own_name(dbus_bus_type, "org.gnome.ShairportSync", G_BUS_NAME_OWNER_FLAGS_NONE, NULL,
+  g_bus_own_name(dbus_bus_type, "org.freedesktop.ShairportSync", G_BUS_NAME_OWNER_FLAGS_NONE, NULL,
                  on_dbus_name_acquired, on_dbus_name_lost, NULL, NULL);
   return 0; // this is just to quieten a compiler warning
 }

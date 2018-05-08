@@ -121,7 +121,7 @@ int main(int argc, char *argv[]) {
   GError *error = NULL;
 
   proxy = shairport_sync_proxy_new_for_bus_sync(gbus_type_selected, G_DBUS_PROXY_FLAGS_NONE,
-                                                "org.gnome.ShairportSync",
+                                                "org.freedesktop.ShairportSync",
                                                 "/org/gnome/ShairportSync", NULL, &error);
 
   // g_signal_connect(proxy, "notify::loudness-filter-active",
@@ -137,7 +137,7 @@ int main(int argc, char *argv[]) {
   ShairportSyncDiagnostics *proxy2;
   GError *error2 = NULL;
   proxy2 = shairport_sync_diagnostics_proxy_new_for_bus_sync(
-      gbus_type_selected, G_DBUS_PROXY_FLAGS_NONE, "org.gnome.ShairportSync",
+      gbus_type_selected, G_DBUS_PROXY_FLAGS_NONE, "org.freedesktop.ShairportSync",
       "/org/gnome/ShairportSync", NULL, &error2);
   g_signal_connect(proxy2, "g-properties-changed", G_CALLBACK(on_properties_changed),
                    "ShairportSync.Diagnostics");
@@ -147,7 +147,7 @@ int main(int argc, char *argv[]) {
   ShairportSyncRemoteControl *proxy3;
   GError *error3 = NULL;
   proxy3 = shairport_sync_remote_control_proxy_new_for_bus_sync(
-      gbus_type_selected, G_DBUS_PROXY_FLAGS_NONE, "org.gnome.ShairportSync",
+      gbus_type_selected, G_DBUS_PROXY_FLAGS_NONE, "org.freedesktop.ShairportSync",
       "/org/gnome/ShairportSync", NULL, &error3);
   g_signal_connect(proxy3, "g-properties-changed", G_CALLBACK(on_properties_changed),
                    "ShairportSync.RemoteControl");
@@ -155,7 +155,7 @@ int main(int argc, char *argv[]) {
   ShairportSyncAdvancedRemoteControl *proxy4;
   GError *error4 = NULL;
   proxy4 = shairport_sync_advanced_remote_control_proxy_new_for_bus_sync(
-      gbus_type_selected, G_DBUS_PROXY_FLAGS_NONE, "org.gnome.ShairportSync",
+      gbus_type_selected, G_DBUS_PROXY_FLAGS_NONE, "org.freedesktop.ShairportSync",
       "/org/gnome/ShairportSync", NULL, &error4);
   g_signal_connect(proxy4, "g-properties-changed", G_CALLBACK(on_properties_changed),
                    "ShairportSync.AdvancedRemoteControl");

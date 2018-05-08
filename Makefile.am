@@ -95,8 +95,8 @@ noinst_HEADERS += $(BUILT_SOURCES)
 # Correctly clean the generated headers, but keep the xml description
 CLEANFILES += $(BUILT_SOURCES)
 
-dbus-interface.h dbus-interface.c:  org.gnome.ShairportSync.xml
-	gdbus-codegen --interface-prefix org.gnome --generate-c-code dbus-interface org.gnome.ShairportSync.xml
+dbus-interface.h dbus-interface.c:  org.freedesktop.ShairportSync.xml
+	gdbus-codegen --interface-prefix org.gnome --generate-c-code dbus-interface org.freedesktop.ShairportSync.xml
 endif
 
 if USE_MPRIS
