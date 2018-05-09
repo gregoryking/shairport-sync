@@ -96,7 +96,7 @@ noinst_HEADERS += $(BUILT_SOURCES)
 CLEANFILES += $(BUILT_SOURCES)
 
 dbus-interface.h dbus-interface.c:  org.freedesktop.ShairportSync.xml
-	gdbus-codegen --interface-prefix org.gnome --generate-c-code dbus-interface org.freedesktop.ShairportSync.xml
+	gdbus-codegen --interface-prefix org.freedesktop --generate-c-code dbus-interface org.freedesktop.ShairportSync.xml
 endif
 
 if USE_MPRIS
